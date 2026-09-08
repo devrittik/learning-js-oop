@@ -39,6 +39,21 @@ function Circle(radius) {
         // this.radius
         console.log("Draw by Constructor");
     };
+
+    /* Getters & Setters */
+
+    Object.defineProperty(this, 'defaultLocation', {
+        get: function () {
+            return defaultLocation;
+        },
+        set: function(value) {
+            if (!value.x || !value.y) {
+                throw new Error("Invalid Location");
+                
+            }
+            defaultLocation = value;
+        }
+    })
 }
 
 const constCircle = new Circle(10);
