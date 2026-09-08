@@ -31,7 +31,7 @@ function Circle(radius) {
     this.radius = radius;
     this.draw = function () {
         console.log("Draw by Constructor");
-        
+
     };
 }
 
@@ -39,15 +39,31 @@ const constCircle = new Circle(10);
 
 // constCircle.draw();
 
-constCircle.location = { x :  1};
+constCircle.location = { x: 1 };
 // constCircle['location'] = { x : 2};
-const propertyName =  "center-location"; // Brackets Notation Needed
-constCircle[propertyName] = { x : 5}; 
+const propertyName = "center-location"; // Brackets Notation Needed
+constCircle[propertyName] = { x: 5 };
 delete constCircle.location;
 console.log(constCircle);
 
 // Circle.apply({}, [1]);
 // Circle.call({}, 1);
+
+/* Enumerating Properties */
+for (let key in constCircle) {
+    if (typeof constCircle[key] != "function") {
+        console.log(key, constCircle[key]);
+    }
+}
+
+const keys = Object.keys(constCircle);
+console.log(keys);
+
+if ("radius" in  constCircle) {
+    console.log("It has a radius");
+    
+}
+
 
 /* Create Object Internally (Function) */
 
@@ -67,7 +83,7 @@ const intCircle = new Circle1(1);
    Reference Types - Objects, Functions, Arrays
 */
 
-let x = {value : 10};
+let x = { value: 10 };
 let y = x;
 
 x.value = 20;
