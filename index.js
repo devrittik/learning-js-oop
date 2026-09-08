@@ -29,9 +29,13 @@ const factoryCircle = createCircle(1);
 
 function Circle(radius) {
     this.radius = radius;
+    this.defaultLocation = {x:0, y:0}; // Should not be changed by outside
+    this.computeOptimumLocation = function (factor) { // Must be called by 'draw' only
+        // ......
+    };
     this.draw = function () {
+        this.computeOptimumLocation();
         console.log("Draw by Constructor");
-
     };
 }
 
