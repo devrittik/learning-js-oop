@@ -35,9 +35,12 @@ function Circle(radius) {
     };
 }
 
-const circle = new Circle(1);
+// const circle = new Circle(1);
 
-circle.draw();
+// circle.draw();
+
+// Circle.apply({}, [1]);
+// Circle.call({}, 1);
 
 /* Create Object Internally (Function) */
 
@@ -51,4 +54,25 @@ const Circle1 = new Function('radius', `
 
 const intCircle = new Circle1(1);
 
-intCircle.draw();
+// intCircle.draw();
+
+/* Value Types - Primitives
+   Reference Types - Objects, Functions, Arrays
+*/
+
+let x = {value : 10};
+let y = x;
+
+x.value = 20;
+
+// console.log(x);
+// console.log(y);
+
+const obj = { val: 52 };
+
+const increase = (obj) => {
+    obj.val++;
+}
+
+increase(obj);
+console.log(obj);
