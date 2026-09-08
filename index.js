@@ -1,16 +1,16 @@
 /* Object literals, Properties, Methods */
 
-// const circle = {
-//     radius: 1,
-//     location: {
-//         x: 1,
-//         y: 1
-//     },
-//     draw: function () {
-//         console.log("Draw");
+const literalCircle = {
+    radius: 1,
+    location: {
+        x: 1,
+        y: 1
+    },
+    draw: function () {
+        console.log("Draw");
 
-//     }
-// }
+    }
+}
 
 /* Factory */
 
@@ -35,9 +35,16 @@ function Circle(radius) {
     };
 }
 
-// const circle = new Circle(1);
+const constCircle = new Circle(10);
 
-// circle.draw();
+// constCircle.draw();
+
+constCircle.location = { x :  1};
+// constCircle['location'] = { x : 2};
+const propertyName =  "center-location"; // Brackets Notation Needed
+constCircle[propertyName] = { x : 5}; 
+delete constCircle.location;
+console.log(constCircle);
 
 // Circle.apply({}, [1]);
 // Circle.call({}, 1);
@@ -75,4 +82,4 @@ const increase = (obj) => {
 }
 
 increase(obj);
-console.log(obj);
+// console.log(obj);
