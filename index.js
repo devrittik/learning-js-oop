@@ -23,7 +23,7 @@ function createCircle(radius) {
     };
 }
 
-// const circle = createCircle(1);
+const factoryCircle = createCircle(1);
 
 /* Constructors */
 
@@ -38,3 +38,17 @@ function Circle(radius) {
 const circle = new Circle(1);
 
 circle.draw();
+
+/* Create Object Internally (Function) */
+
+const Circle1 = new Function('radius', `
+   this.radius = radius;
+    this.draw = function () {
+        console.log("Draw by Constructor (Internally)");
+
+    };
+`);
+
+const intCircle = new Circle1(1);
+
+intCircle.draw();
